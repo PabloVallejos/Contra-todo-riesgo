@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
+    public Driver dr;
     public AudioClip[] clips;
     public AudioSource au2;
     public Button bot;
@@ -115,5 +116,6 @@ public class Car : MonoBehaviour
     void GameOver()
     {
         timer = 4;
+        dr.gameObject.SetActive(true);
     }
 }
