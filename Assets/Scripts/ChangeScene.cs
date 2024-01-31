@@ -14,6 +14,11 @@ public class ChangeScene : MonoBehaviour
             Application.Quit();
         }
 
+        if (Input.GetKey(KeyCode.Backspace) && SceneManager.GetActiveScene().name != "Menu")
+        {
+            SceneChange("Menu");
+        }
+
         if (change)
         {
             if (timer > 0)

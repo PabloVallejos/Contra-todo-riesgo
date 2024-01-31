@@ -9,11 +9,14 @@ public class Driver : MonoBehaviour
     public bool flip;
     float timer = 2f;
     bool stop = false;
+    ParticleSystem ps;
 
     private void Start()
     {
         this.gameObject.SetActive(false);
+        ps = GetComponent<ParticleSystem>();
         GetComponent<SpriteRenderer>().flipX = flip;
+        ps.Stop();
     }
 
     private void FixedUpdate()
@@ -22,7 +25,6 @@ public class Driver : MonoBehaviour
         {
             transform.Rotate(0, 0, Rspeed * Time.deltaTime);
             transform.Translate(Vector3.forward * Fspeed * Time.deltaTime);
-            GetComponent<ParticleSystem>().Play();
         }
         if (timer > 0)
         {
@@ -35,7 +37,7 @@ public class Driver : MonoBehaviour
 
     void BlowUp()
     {
-        GetComponent<ParticleSystem>().Play();
+        ps.Play();
         stop = true;
     }
 }
