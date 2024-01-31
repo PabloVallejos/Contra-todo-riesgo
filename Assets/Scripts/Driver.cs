@@ -37,6 +37,7 @@ public class Driver : MonoBehaviour
 
     void BlowUp()
     {
+        ps.Simulate(1);
         ps.Play();
         stop = true;
     }
